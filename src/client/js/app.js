@@ -5,6 +5,10 @@ let is = ' is ';
 let numberOfDays = 0;
 let daysAway = ' days away.';
 
+var a = -6;
+var b = -4;
+var c = -2;
+
 // Create a new date instance dynamically with JS
 let d = new Date();
 let now = (d.getMonth() + 1)+'/'+ d.getDate()+'/'+ d.getFullYear();
@@ -22,7 +26,11 @@ document.getElementById('generate').addEventListener('click', performAction);
 function performAction(e){
 const location =  document.getElementById('location').value;
 let departingDate = document.getElementById('departing').value;
- 
+
+a += 6;
+b += 6;
+c += 6;
+
 console.log("daysDifference");
 console.log(daysDifference(now, departingDate));
 numberOfDays = daysDifference(now, departingDate);
@@ -49,6 +57,7 @@ getLocation(baseURL,location, apiKey)
     //console.log(data2.daily.data[0].temperatureLow);
     postData('/wheather', {summary : data2.daily.data[0].summary, highTemp: data2.daily.data[0].temperatureHigh, lowTemp: data2.daily.data[0].temperatureLow});
   });
+  setTimeout(function(){
   getPicture(api3, location, api3Key)
   .then(function(data3){
     console.log("data3");
@@ -56,6 +65,7 @@ getLocation(baseURL,location, apiKey)
     //console.log(data3.hits[0].largeImageURL);
     postData('/wheather', {picture: data3.hits[0].largeImageURL});
   });
+}, 500);
   //The information does send back with one click because there is a setTimeout function delaying the updateUI();
   setTimeout(function(){
   console.log("RAN updateUI");
@@ -140,17 +150,17 @@ const updateUI = async () => {
     //console.log(allData[4].summary);
     //document.getElementById('latitude').innerHTML = allData[0].latitude;
     //document.getElementById('longitude').innerHTML = allData[0].longitude;
-    document.getElementById('city').innerHTML = allData[0].city;
+    document.getElementById('city').innerHTML = allData[a].city;
     document.getElementById('comma').innerHTML = comma;
-    document.getElementById('country').innerHTML = allData[0].country;
-    document.getElementById('departingDate').innerHTML = allData[0].departingDate;
-    document.getElementById('picture').src = allData[2].picture;
-    document.getElementById('weather').innerHTML = allData[4].summary;
-    document.getElementById('highTemp').innerHTML = allData[4].highTemp;
-    document.getElementById('lowTemp').innerHTML = allData[4].lowTemp;
-    document.getElementById('city2').innerHTML = allData[0].city;
+    document.getElementById('country').innerHTML = allData[a].country;
+    document.getElementById('departingDate').innerHTML = allData[a].departingDate;
+    document.getElementById('picture').src = allData[c].picture;
+    document.getElementById('weather').innerHTML = allData[b].summary;
+    document.getElementById('highTemp').innerHTML = allData[b].highTemp;
+    document.getElementById('lowTemp').innerHTML = allData[b].lowTemp;
+    document.getElementById('city2').innerHTML = allData[a].city;
     document.getElementById('comma2').innerHTML = comma;
-    document.getElementById('country2').innerHTML = allData[0].country;
+    document.getElementById('country2').innerHTML = allData[a].country;
     document.getElementById('is').innerHTML = is;
     document.getElementById('numberOfDays').innerHTML = numberOfDays;
     document.getElementById('daysAway').innerHTML = daysAway;
