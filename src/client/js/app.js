@@ -65,12 +65,12 @@ getLocation(baseURL,location, apiKey)
     //console.log(data3.hits[0].largeImageURL);
     postData('/wheather', {picture: data3.hits[0].largeImageURL});
   });
-}, 500);
+}, 1000);
   //The information does send back with one click because there is a setTimeout function delaying the updateUI();
   setTimeout(function(){
   console.log("RAN updateUI");
   updateUI();
-}, 1000);
+}, 2000);
 });
 }
 
@@ -173,3 +173,4 @@ const updateUI = async () => {
 module.exports = performAction;
 module.exports = updateUI;
 module.exports = getDarkSky;
+module.exports = departingDate;
