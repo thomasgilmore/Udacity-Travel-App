@@ -1,3 +1,4 @@
+window.onload = function (){
 /* Global Variables */
 let comma = ', ';
 let comma2 = ',';
@@ -173,3 +174,4 @@ const updateUI = async () => {
 module.exports = performAction;
 module.exports = updateUI;
 module.exports = getDarkSky;
+};
