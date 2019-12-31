@@ -1,13 +1,8 @@
 window.onload = function() {
 	/* Global Variables */
-	let comma = ', ';
-	let comma2 = ',';
-	let is = ' is ';
-	let numberOfDays = 0;
-	let daysAway = ' days away.';
-	var a = -6;
-	var b = -4;
-	var c = -2;
+	let comma = ', ', comma2 = ',', is = ' is ', numberOfDays = 0, daysAway = ' days away.';
+	var a = -6, b = -4, c = -2;
+	let theTripWillLast = "The trip will last ", days = " days.";
 	// Create a new date instance dynamically with JS
 	let d = new Date();
 	let now = (d.getMonth() + 1) + '/' + d.getDate() + '/' + d.getFullYear();
@@ -21,12 +16,16 @@ window.onload = function() {
 	function performAction(e) {
 		const location = document.getElementById('location').value;
 		let departingDate = document.getElementById('departing').value;
+		let endDate = document.getElementById('endDate').value;
 		a += 6;
 		b += 6;
 		c += 6;
 		console.log("daysDifference");
 		console.log(daysDifference(now, departingDate));
+		console.log("endDate");
+		console.log(daysDifference(departingDate, endDate));
 		numberOfDays = daysDifference(now, departingDate);
+		lengthOfTrip = daysDifference(departingDate, endDate);
 		getLocation(baseURL, location, apiKey).then(function(data) {
 			console.log("data");
 			console.log(data);
@@ -83,7 +82,7 @@ window.onload = function() {
 			console.log("error", error);
 			// appropriately handle the error
 		}
-	}
+	};
 	const postData = async (url = '', data = {}) => {
 		//console.log(data);
 		const response = await fetch(url, {
@@ -101,7 +100,7 @@ window.onload = function() {
 		} catch (error) {
 			console.log("error", error);
 		}
-	}
+	};
 	const getDarkSky = async (darkSky, latitude, comma2, longitude) => {
 		const res = await fetch(darkSky + latitude + comma2 + longitude);
 		try {
@@ -152,6 +151,9 @@ window.onload = function() {
 			document.getElementById('is').innerHTML = is;
 			document.getElementById('numberOfDays').innerHTML = numberOfDays;
 			document.getElementById('daysAway').innerHTML = daysAway;
+			document.getElementById('theTripWillLast').innerHTML = theTripWillLast;
+			document.getElementById('lengthofTrip').innerHTML = lengthOfTrip;
+			document.getElementById('days').innerHTML = days;
 		} catch (error) {
 			console.log("error", error);
 		}

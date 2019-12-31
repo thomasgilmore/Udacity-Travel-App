@@ -11,6 +11,9 @@ Run the following commands in ther terminal window in Visual Studio Code while p
 7. Run npm start run
 8. Open http://localhost:3001/ in Google Chrome
 
+## Extend your Project Further
+I added an end date input so the website will display the length of the trip.
+
 ## Overview
 This project requires you to create an asynchronous web app that uses Web API and user data to dynamically update the UI. 
 
