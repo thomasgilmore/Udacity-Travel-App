@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Travel Planner</title>
-<link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
-<!--<link rel="stylesheet" href="style.css">-->
+	<meta charset="UTF-8">
+	<title>Travel Planner</title>
+	<link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet"><!--<link rel="stylesheet" href="style.css">-->
 </head>
- <body>
-<div id = "app" onsubmit="return Client.performAction(e)">
-  <div class ="holder headline">
-    Travel Planner
-  </div>
-  <div>
-    <h3>My Trips:</h3>
-  </div>
-  <div class="tripCard">
-    <p><img id="picture" src="" width="500px"></p>
-    <h2>My trip to: <a id="city"></a><a id="comma"></a><a id="country"></a></h2>
-    <h2>Departing: <a id="departingDate"></a></h2>
-    <p><a id="city2"></a><a id="comma2"></a><a id="country2"><a id="is"></a><a><a id="numberOfDays"></a><a id="daysAway"></a></p>
-    <p>Typical weather for then is: <br> High: <a id="highTemp"></a>, Low: <a id="lowTemp"></a> <br> <a id="weather"></a></p>
-  </div>
-  <div class ="holder location tripInfo">
-    <label for="location">My trip to:</label>
-    <input type="text" id="location" placeholder="Enter City">
-  </div>
-  <div class ="holder departing tripInfo">
-    <label for="departing">Departing:</label>
-    <input type="text" id="departing" placeholder="MM/DD/YYYY">
-    <br>
-    <button id="generate" type = "submit"> Generate </button>
-  </div>
-  <!--<div class ="holder entry">
-    <div class = "title">Most Recent Entry</div>
-   <div id = "entryHolder">-->
-    <!--<div id = "latitude"></div> 
-   <div id = "longitude"></div>-->
-  </div>
-  </div>
-  </div>
-<!--<script src="app.js" type="text/javascript"></script>-->
-
+<body>
+	<div id="app" onsubmit="return Client.performAction(e)">
+		<div class="holder headline">
+			Travel Planner
+		</div>
+		<div>
+			<h3>My Trips:</h3>
+		</div>
+		<div class="tripCard">
+			<p><img id="picture" src="" width="500px"></p>
+			<h2>My trip to: <a id="city"></a><a id="comma"></a><a id="country"></a></h2>
+			<h2>Departing: <a id="departingDate"></a></h2>
+			<p><a id="city2"></a><a id="comma2"></a><a id="country2"></a><a id="is"></a><a></a><a id="numberOfDays"></a><a id="daysAway"></a></p>
+			<p>Typical weather for then is:<br>
+			High: <a id="highTemp"></a>, Low: <a id="lowTemp"></a><br>
+			<a id="weather"></a></p>
+		</div>
+		<div class="holder location tripInfo">
+			<label for="location">My trip to:</label> <input id="location" placeholder="Enter City" type="text">
+		</div>
+		<div class="holder departing tripInfo">
+			<label for="departing">Departing:</label> <input id="departing" placeholder="MM/DD/YYYY" type="text"><br>
+			<button id="generate" type="submit">Generate</button>
+		</div>
+	</div><!--<script src="app.js" type="text/javascript"></script>-->
 </body>
+<script>
+	if ('serviceWorker' in navigator) {
+		window.addEventListener('load', () => {
+			navigator.serviceWorker.register('/service-worker.js').then(registration => {
+				console.log('SW registered: ', registration);
+			});
+		});
+	} else {
+		console.log("Service Working not working");
+	}
+</script>
 </html>
