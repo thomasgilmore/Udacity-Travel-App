@@ -70,3 +70,10 @@ app.post("/save", (req, res) => {
 	//projectData.content = req.body.content;
 	res.end();
 });
+
+//for testing
+const sum = (a, b) => {
+	return a + b;
+  }
+  
+  module.exports = sum; 

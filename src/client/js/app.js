@@ -64,7 +64,7 @@ window.onload = function() {
 						picture: data3.hits[0].largeImageURL
 					});
 				});
-			}, 1000);
+			}, 1500);
 			//The information does send back with one click because there is a setTimeout function delaying the updateUI();
 			setTimeout(function() {
 				console.log("RAN updateUI");
