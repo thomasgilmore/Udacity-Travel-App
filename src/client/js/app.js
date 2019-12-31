@@ -1,7 +1,7 @@
 window.onload = function() {
 	/* Global Variables */
 	let comma = ', ', comma2 = ',', is = ' is ', numberOfDays = 0, daysAway = ' days away.';
-	var a = -6, b = -4, c = -2;
+	let a = -6, b = -4, c = -2;
 	let theTripWillLast = "The trip will last ", days = " days.";
 	// Create a new date instance dynamically with JS
 	let d = new Date();
